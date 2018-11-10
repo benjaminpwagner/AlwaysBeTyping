@@ -6,6 +6,7 @@
   align-self: center;
   justify-content: center;
   font-size: 25px;
+  background-image: linear-gradient(to bottom right, rgba(43, 167, 224, 0.65), rgba(67, 47, 156, 0.411));
 }
 
 #results-container{
@@ -13,6 +14,12 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.scrolling-words {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-end;
 }
 
 #change-name{
@@ -39,15 +46,29 @@
 }
 
 .empty {
-  width: 8px;
+  width: 6px;
+}
+
+.current-letter {
+  /* font-size: 26px; */
+}
+
+.empty-current {
+  /* background-color: rgb(149, 149, 149); */
+  width: 4px;
 }
 
 .invalid-char {
   /* border: solid 1px black; */
-  color: red;
+  color: rgb(202, 64, 10);
+  opacity: .7 ;
+
 }
 
 .invalid-char-space {
+  opacity: .6;
+
+
   /* width: 8px; */
   color: red;
   /* margin-right: 5px; */
@@ -58,12 +79,19 @@
 
 .valid-char {
   /* border: solid 1px black; */
-  color: green;
+  color: rgb(12, 167, 12);
+  opacity: .75;
+
 }
 
 .column {
   display: flex;
   flex-direction: column;
+}
+
+.message {
+  display: flex;
+  align-self: center;
 }
 
 .row {
@@ -85,19 +113,58 @@
 } */
 
 
+.name{
+  display: flex;
+  justify-content: space-between;
+}
+
+.next-letters {
+  opacity: .4;
+}
+
 .game-container {
-  background-color: none;
+  background-image: linear-gradient(rgba(21, 49, 209, 0.664), rgba(39, 129, 182, 0.486));
 
   /* border: solid 1px black; */
   display: flex;
   align-self: center;  
   /* justify-content: center; */
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  /* flex-wrap: nowrap; */
+  border-radius: 25px;
+  margin-bottom: 5px;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 12px; 
+  width: 360px;
+}
+
+.set-name {
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+.set-name>input {
+  height: 50px;
+  font-size: 20px;
+}
+
+.header {
+  background-image: linear-gradient(rgba(35, 157, 228, 0.76), rgba(0, 17, 255, 0.671));
+  margin-top: 0px;
+  font-size: 70px;
+  width: 100vw;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #lobby-container {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin: 15px;
+  /* margin-top: 0px; */
 }

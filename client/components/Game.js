@@ -44,14 +44,17 @@ export default ({WPM, typed, prevChars, newChars, username, startedAt}) => {
   const percent = 100*( typed.length / (prevChars.length + newChars.length) )
 
   return <div className='game-container'>
-    <div style={{marginRight: 10}}>{WPM} WPM</div>
-    <div style={{marginRight: 10}}>{username}:</div>
-    <ScrollingWords 
-      message={message} 
-      prefix={prefix} 
-      words={newChars} 
-      addSpace={addSpace} 
-    />
+    <div className='name'>
+      <div className='' >-{username}</div>
+      <div >{WPM} WPM</div>
+    </div>
+
+      <ScrollingWords 
+        message={message} 
+        prefix={prefix} 
+        words={newChars} 
+        addSpace={addSpace} 
+      />
  
  {/* <ProgressBar
   trigger={percent}

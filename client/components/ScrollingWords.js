@@ -3,12 +3,20 @@ import React from 'react'
 export default ({ WPM, accuracy, prefix, words, addSpace, message }) => {
   
   return words ? (
-    <div className='row'>
+    <div className='scrolling-words'>
       {prefix}
-      <div 
-        style={{marginLeft: addSpace ? 4 : 0}}
-      >{words.slice(0,24)}</div>
+      <div className={`current-letter ${words.charAt(0) === ' ' ? 'empty-current' : ''}`}>
+        {words.charAt(0)}
+      </div>
+
+      {words.charAt(1) === ' ' &&
+        <div className='empty' />
+      }
+
+      <div className='next-letters'
+        style={{marginLeft: addSpace ? 3 : 0}}
+      >{words.slice(1,24)}</div>
     </div>
-  ) : <div>{message}</div>
+  ) : <div className='message'>{message}</div>
 }
   

@@ -7,9 +7,8 @@ const SetName = ({setName}) => {
   const handleChange = e => {
     name = e.target.value
   }
-  return <div className='column'>
-    <h1>Always Be Typing...</h1>
-    <input type='text' onChange={handleChange} />
+  return <div className='column set-name'>
+    <input type='text' onChange={handleChange} maxLength='16' />
     <button onClick={()=>setName(name)}>Set Name</button>
   </div>
 

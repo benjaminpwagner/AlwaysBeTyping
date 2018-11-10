@@ -28,7 +28,8 @@ module.exports = class Lobby {
   }
 
   updateName(socketId, name) {
-    this.players[socketId].username = name
+    if (this.players[socketId])
+      this.players[socketId].username = name
   }
 
   getOtherPlayers(socketId) {
@@ -67,7 +68,8 @@ module.exports = class Lobby {
   }
 
   playerFinished(socketId) {
-    this.players[socketId].done()
+    if (this.players[socketId])
+      this.players[socketId].done()
   }
 
   broadcastPlayer(socketId) {

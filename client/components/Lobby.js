@@ -8,7 +8,6 @@ import Results from './Results'
 
 const Lobby = ({ players, game, endGame }) => game.onGoing ?
   <div id='lobby-container'>
-      <h1>Always Be Typing...</h1>
     <div className='row'>
 
     {game.onGoing ? <ReactCountdownClock 

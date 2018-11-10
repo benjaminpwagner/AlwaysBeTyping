@@ -30,6 +30,7 @@ class app extends React.Component {
       
       // let redux know whats going on
       if (keydown.event.which === SPACE ) {
+        keydown.event.preventDefault() // stop autoscroll
         await this.props.inputChar(' ')  
         
       } else if (keydown.event.which === BACKSPACE ) {
@@ -50,11 +51,17 @@ class app extends React.Component {
   }
   
   render() {
-    return this.props.game.username === 'Anonymous'
-      ? <SetName />
-      : <div id='app'>
-          <Lobby />
-        </div>
+    return <div>
+      <div className='header'>
+        <p>Always be typing...</p>
+      </div>
+      { this.props.game.username === 'Anonymous'
+        ? <SetName />
+        : <div id='app'>
+            <Lobby />
+          </div>
+      }
+    </div>
   }
 
 }

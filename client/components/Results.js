@@ -9,11 +9,11 @@ const Results =  ({setName, game, players}) => {
   return (
       <div id='results-container'>
         <h1>Game Over!</h1>
-          <button id='change-name'
+          {/* <button id='change-name'
             onClick={()=>setName('Anonymous')}
           >
             Change Name
-          </button>
+          </button> */}
           <div className='row' >
             <ReactCountdownClock
               seconds={15}
