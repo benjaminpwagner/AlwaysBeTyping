@@ -27,6 +27,10 @@ module.exports = class Lobby {
     this.sockets.emit('update-wpm', socketId, this.players[socketId].WPM)
   }
 
+  updateName(socketId, name) {
+    this.players[socketId].username = name
+  }
+
   getOtherPlayers(socketId) {
     const {[socketId]: _, ...players} = this.players
     return players

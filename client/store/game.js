@@ -1,4 +1,4 @@
-
+import socket from '../socket'
 const initState = {
   newChars: '',
   prevChars: '',
@@ -17,6 +17,14 @@ const BACKSPACE = 'BACKSPACE'
 const END_GAME = 'END_GAME'
 const UPDATE_WPM = 'UPDATE_WPM'
 const SHOW_RESULTS = 'SHOW_RESULTS'
+const SET_NAME = 'SET_NAME'
+
+export const setName = name => {
+  socket.emit('change-name', name)
+  return {
+    type: SET_NAME, name
+  }
+}
 
 export const showResults = () => ({
   type: SHOW_RESULTS
@@ -76,6 +84,11 @@ export default function(state = initState, action) {
         prevChars: state.prevChars.slice(0, state.prevChars.length-1),
         newChars: `${state.prevChars.charAt(state.prevChars.length-1)}${state.newChars}`
       }
+    case SET_NAME:
+       return {
+         ...state,
+         username: action.name
+       }
     default:
       return state
   }

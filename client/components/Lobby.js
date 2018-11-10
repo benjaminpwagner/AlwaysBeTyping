@@ -8,10 +8,10 @@ import Results from './Results'
 
 const Lobby = ({ players, game, endGame }) => game.onGoing ?
   <div id='lobby-container'>
+      <h1>Always Be Typing...</h1>
     <div className='row'>
-      {/* <h1>Welcome!</h1> */}
 
-    {game.active ? <ReactCountdownClock 
+    {game.onGoing ? <ReactCountdownClock 
       seconds={game.timeSecs}
       color="#000"
       alpha={0.9}
@@ -30,10 +30,15 @@ const Lobby = ({ players, game, endGame }) => game.onGoing ?
           WPM={game.WPM}
         />
 
-
-
         { Object.keys(players)
           .filter(key => players[key])
+          .sort( (a, b) => {
+            if (players[a].WPM < players[b].WPM)
+              return 1
+            else if (players[a].WPM > players[b].WPM)
+              return -1
+            else return 0
+          })
           .map(key => {
           
           const {WPM, typed, prevChars, newChars, username, startedAt} = players[key]

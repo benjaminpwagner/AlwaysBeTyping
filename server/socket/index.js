@@ -1,4 +1,3 @@
-const { addResult } = require('../game/results')
 
 module.exports = (io, Lobby) => {
   io.on('connection', socket => {
@@ -15,8 +14,8 @@ module.exports = (io, Lobby) => {
       socket.broadcast.emit('update-player', socket.id, playerState);
     })
 
-    socket.on('send-result', result => {
-      addResult(socket.id, result)
+    socket.on('change-name', name => {
+      Lobby.updateName(socket.id, name)
     })
 
     socket.on('done-typing', () => {

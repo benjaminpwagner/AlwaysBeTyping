@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import keydown, { Keys } from 'react-keydown'
 import { inputChar, backspace, endGame } from './store'
 import Lobby from './components/Lobby';
+import SetName from './components/SetName'
 import socket from './socket';
 
 const { SPACE, BACKSPACE } = Keys
@@ -17,7 +18,7 @@ class app extends React.Component {
 
   componentDidMount() {
     // let the other clients know we're here!
-    socket.emit('join-lobby')
+    socket.emit('join-lobby', this.props.game.username)
   }
 
   componentDidUpdate() {
@@ -25,7 +26,7 @@ class app extends React.Component {
   }
   
   async componentWillReceiveProps({ keydown }) {
-    if ( keydown.event && this.props.game.isActive ) {
+    if ( keydown.event && this.props.game.isActive && this.props.game.username !== 'Anonymous') {
       
       // let redux know whats going on
       if (keydown.event.which === SPACE ) {
@@ -49,9 +50,11 @@ class app extends React.Component {
   }
   
   render() {
-    return <div id='app'>
-      <Lobby />
-    </div>
+    return this.props.game.username === 'Anonymous'
+      ? <SetName />
+      : <div id='app'>
+          <Lobby />
+        </div>
   }
 
 }

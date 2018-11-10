@@ -5,8 +5,8 @@ const pauseSecs = timeSecs =>
 
 module.exports = async Lobby => {
   const gameTimeSecs = 5
-  const resultsTimeSecs = 5
-  const wordsPerGame = 5
+  const resultsTimeSecs = 15
+  const wordsPerGame = 100
   
   while(true) {
 
