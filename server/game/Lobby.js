@@ -9,6 +9,11 @@ module.exports = class Lobby {
     this.words = ''
   }
 
+  showResults() {
+    this.game.onGoing = false
+    this.sockets.emit('show-results')
+  }
+
   updateWPM() {
     Object.keys(this.players).forEach(socketId => {
       this.players[socketId].calculateWPM()

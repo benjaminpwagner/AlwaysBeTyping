@@ -7,7 +7,8 @@ const initState = {
   WPM: 0,
   isActive: false,
   username: 'Anonymous',
-  startedAt: new Date()
+  startedAt: new Date(),
+  onGoing: true
 }
 
 const NEW_GAME = 'NEW_GAME'
@@ -15,6 +16,11 @@ const INPUT_CHARACTER = 'INPUT_CHARACTER'
 const BACKSPACE = 'BACKSPACE'
 const END_GAME = 'END_GAME'
 const UPDATE_WPM = 'UPDATE_WPM'
+const SHOW_RESULTS = 'SHOW_RESULTS'
+
+export const showResults = () => ({
+  type: SHOW_RESULTS
+})
 
 export const inputChar = char => ({
   type: INPUT_CHARACTER, char
@@ -53,6 +59,10 @@ export default function(state = initState, action) {
       return {
         ...state,
         WPM: action.WPM
+      }
+    case SHOW_RESULTS:
+      return {
+        ...state, onGoing: false
       }
     case INPUT_CHARACTER:
       return { ...state, 

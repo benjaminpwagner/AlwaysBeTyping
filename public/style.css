@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+#results-container{
+  margin-top: 20px;
+}
+
 .wordlist {
   display: flex;
   flex-direction: row;

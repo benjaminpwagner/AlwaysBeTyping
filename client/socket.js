@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import store, { newGame, updateWPM, updatePlayer, removePlayer, addPlayers } from './store'
+import store, { showResults, newGame, updateWPM, updatePlayer, removePlayer, addPlayers } from './store'
 
 const socket = io(window.location.origin)
 
@@ -9,6 +9,11 @@ socket.on('connect', () => {
   socket.on('joined-game', (gameState, players) => {
     // console.log('players',players)
     store.dispatch(addPlayers(players))
+    store.dispatch(newGame(gameState))
+  })
+
+  socket.on('show-results', () => {
+    store.dispatch(showResults())
   })
 
   socket.on('update-wpm', (socketId, WPM) => {
@@ -42,7 +47,7 @@ socket.on('connect', () => {
     console.log("client starting game!")
     const {[socket.id]: myGame, ...otherPlayers} = players
 
-    await store.dispatch(newGame(myGame))
+    await store.dispatch(newGame({...game,...myGame}))
     await store.dispatch(addPlayers(otherPlayers))
     // const myGame = store.getState().game
     // socket.emit('update-player', game )

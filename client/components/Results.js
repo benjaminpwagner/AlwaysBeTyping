@@ -1,3 +1,9 @@
 import React from 'react'
 
-s
+export default ({game, players}) => {
+  return (
+    <div id='results-container'>
+
+    </div>
+  )
+}
