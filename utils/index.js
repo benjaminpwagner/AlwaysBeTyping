@@ -25,6 +25,16 @@ const calculateAdjustedWPM = (actual, expected, timeMs) => {
   return Math.round(adjustedWPM)
 }
 
+const calculateAccuracy = (actual, expected) => {
+  return Math.round( 100 *
+    ( (actual.length - calculatorErrors(actual, expected) )
+    / actual.length)
+  )
+}
+
 module.exports = {
-  calculateWPM, calculatorErrors, calculateAdjustedWPM
+  calculateWPM, 
+  calculatorErrors, 
+  calculateAdjustedWPM,
+  calculateAccuracy
 }

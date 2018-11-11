@@ -22,7 +22,7 @@ const Results =  ({setName, game, players}) => {
               size={50}
               onComplete={() => endGame()}
             />
-            <div className='column border' style={{marginLeft: 20}}>
+            <div className='column border' style={{width: 500, marginLeft: 20}}>
 
               { Object.keys(players)
                 .filter(key => players[key])
@@ -34,7 +34,7 @@ const Results =  ({setName, game, players}) => {
                   else return 0
                 })
                 .map((key,idx) =>
-                <Result key={idx} place={idx+1} name={players[key].username} wpm={players[key].WPM} />
+                <Result key={idx} place={idx+1} name={players[key].username} wpm={players[key].WPM} accuracy={players[key].accuracy}/>
                 )
               }
           </div>

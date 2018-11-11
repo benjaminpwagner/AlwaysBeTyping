@@ -24,7 +24,7 @@ module.exports = class Lobby {
   }
 
   broadcastWPM(socketId) {
-    this.sockets.emit('update-wpm', socketId, this.players[socketId].WPM)
+    this.sockets.emit('update-wpm', socketId, this.players[socketId].WPM, this.players[socketId].accuracy)
   }
 
   updateName(socketId, name) {

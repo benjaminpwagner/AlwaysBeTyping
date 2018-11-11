@@ -3,7 +3,7 @@ import ScrollingWords from './ScrollingWords'
 import { calculateAdjustedWPM } from '../../utils'
 import ProgressBar from  "react-prog-bar";
  
-export default ({WPM, typed, prevChars, newChars, username, startedAt}) => {
+export default ({WPM, accuracy, typed, prevChars, newChars, username, startedAt}) => {
 
   const lastIdx = typed.length - 1
 
@@ -39,14 +39,13 @@ export default ({WPM, typed, prevChars, newChars, username, startedAt}) => {
     ? 'joining next round...'
     : 'Finished!'
 
-
-  const timeElapsed = new Date() - new Date(startedAt)
-  const percent = 100*( typed.length / (prevChars.length + newChars.length) )
-
   return <div className='game-container'>
     <div className='name'>
       <div className='' >-{username}</div>
-      <div >{WPM} WPM</div>
+      <div className='row name' style={{width: 260}}>
+        <div >{WPM} WPM</div>
+        <div >{accuracy ? accuracy : '0'}% accuracy</div>
+      </div>
     </div>
 
       <ScrollingWords 

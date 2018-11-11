@@ -16,7 +16,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 800px;
+  width: 400px;
 }
 
 .border {
@@ -144,7 +144,7 @@
   margin-bottom: 5px;
   border: 2px solid rgb(0, 0, 0);
   padding: 12px; 
-  width: 360px;
+  width: 470px;
 }
 
 .set-name {

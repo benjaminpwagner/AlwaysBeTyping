@@ -5,6 +5,7 @@ const initState = {
   typed: '',
   timeSecs: 0,
   WPM: 0,
+  accuracy: 0,
   isActive: false,
   username: 'Anonymous',
   startedAt: new Date(),
@@ -46,8 +47,8 @@ export const endGame = () => ({
   type: END_GAME
 })
 
-export const updateWPM = WPM => ({
-  type: UPDATE_WPM, WPM
+export const updateWPM = (WPM, accuracy) => ({
+  type: UPDATE_WPM, WPM, accuracy
 })
 
 export default function(state = initState, action) {
@@ -66,7 +67,8 @@ export default function(state = initState, action) {
     case UPDATE_WPM:
       return {
         ...state,
-        WPM: action.WPM
+        WPM: action.WPM,
+        accuracy: action.accuracy
       }
     case SHOW_RESULTS:
       return {

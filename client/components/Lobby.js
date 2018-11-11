@@ -27,6 +27,7 @@ const Lobby = ({ players, game, endGame }) => game.onGoing ?
           username={game.username}
           startedAt={game.startedAt}
           WPM={game.WPM}
+          accuracy={game.accuracy}
         />
 
         { Object.keys(players)
@@ -40,7 +41,7 @@ const Lobby = ({ players, game, endGame }) => game.onGoing ?
           })
           .map(key => {
           
-          const {WPM, typed, prevChars, newChars, username, startedAt} = players[key]
+          const {WPM, accuracy, typed, prevChars, newChars, username, startedAt} = players[key]
           
           return <div key={key}>
             <Game 
@@ -51,6 +52,7 @@ const Lobby = ({ players, game, endGame }) => game.onGoing ?
               username={username}
               startedAt={startedAt}
               WPM={WPM}
+              accuracy={accuracy}
             />
           </div>
 

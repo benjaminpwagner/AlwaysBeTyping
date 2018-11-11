@@ -16,9 +16,9 @@ socket.on('connect', () => {
     store.dispatch(showResults())
   })
 
-  socket.on('update-wpm', (socketId, WPM) => {
+  socket.on('update-wpm', (socketId, WPM, accuracy) => {
     if (socketId === socket.id)
-      store.dispatch(updateWPM(WPM))
+      store.dispatch(updateWPM(WPM, accuracy))
   })
 
   socket.on('update-player', (socketId, gameState) => {

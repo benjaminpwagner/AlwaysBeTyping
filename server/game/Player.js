@@ -1,4 +1,4 @@
-const { calculateAdjustedWPM } = require('../../utils')
+const { calculateAdjustedWPM, calculateAccuracy } = require('../../utils')
 
 
 module.exports = class Player {
@@ -12,6 +12,7 @@ module.exports = class Player {
     this.startedAt = null
     this.finishedAt = null
     this.WPM = 0
+    this.accuracy = 0
   }
 
   newWords(words) {
@@ -43,6 +44,7 @@ module.exports = class Player {
     } else {
       timeElapsed = new Date() - new Date(this.startedAt)
     }
+    this.accuracy = calculateAccuracy(this.typed, this.prevChars)
     this.WPM = calculateAdjustedWPM(this.typed, this.prevChars, timeElapsed)
   }
 }
