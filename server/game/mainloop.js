@@ -4,8 +4,8 @@ const pauseSecs = timeSecs =>
   new Promise(resolve => setTimeout(resolve, timeSecs*1000))
 
 module.exports = async Lobby => {
-  const gameTimeSecs = 60
-  const resultsTimeSecs = 15
+  const gameTimeSecs = 10
+  const resultsTimeSecs = 30
   const wordsPerGame = 100
   
   while(true) {

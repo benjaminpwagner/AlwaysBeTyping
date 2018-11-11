@@ -51,7 +51,7 @@ class app extends React.Component {
   }
   
   render() {
-    return <div>
+    return <div id='app'>
       <div className='header'>
         <p>Always be typing...</p>
       </div>

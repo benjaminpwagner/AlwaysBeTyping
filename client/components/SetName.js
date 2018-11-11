@@ -8,8 +8,8 @@ const SetName = ({setName}) => {
     name = e.target.value
   }
   return <div className='column set-name'>
-    <input type='text' onChange={handleChange} maxLength='16' />
-    <button onClick={()=>setName(name)}>Set Name</button>
+    <input type='text' placeholder='display name' onChange={handleChange} maxLength='15' />
+    <button className='button' onClick={()=>setName(name)}>Set Name</button>
   </div>
 
 }
