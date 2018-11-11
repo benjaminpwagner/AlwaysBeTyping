@@ -8,6 +8,13 @@ export default ({WPM, accuracy, typed, prevChars, newChars, username, startedAt}
   const lastIdx = typed.length - 1
 
   const prefixChars = [
+    typed.charAt(lastIdx-13) || '',
+    typed.charAt(lastIdx-12) || '',
+    typed.charAt(lastIdx-11) || '',
+    typed.charAt(lastIdx-10) || '',
+    typed.charAt(lastIdx-9) || '',
+    typed.charAt(lastIdx-8) || '',
+    typed.charAt(lastIdx-7) || '',
     typed.charAt(lastIdx-6) || '',
     typed.charAt(lastIdx-5) || '',
     typed.charAt(lastIdx-4) || '',
