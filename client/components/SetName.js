@@ -5,7 +5,7 @@ import {setName} from '../store'
 const SetName = ({setName}) => {
   let name = ''
   const handleChange = e => {
-    name = e.target.value
+    name = e.target.value.toLowerCase()
   }
   return <div className='column set-name'>
     <input type='text' placeholder='display name' onChange={handleChange} maxLength='15' />

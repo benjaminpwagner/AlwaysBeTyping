@@ -46,5 +46,7 @@ module.exports = class Player {
     }
     this.accuracy = calculateAccuracy(this.typed, this.prevChars)
     this.WPM = calculateAdjustedWPM(this.typed, this.prevChars, timeElapsed)
+    // this.accuracy = 100
+    // this.WPM = 100
   }
 }
