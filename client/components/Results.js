@@ -22,7 +22,7 @@ const Results =  ({setName, game, players}) => {
               size={50}
               onComplete={() => endGame()}
             />
-            <div className='column border' style={{width: 500, marginLeft: 20}}>
+            <div className='column border gradient-result' style={{width: 500, marginLeft: 20}}>
 
               { Object.keys(players)
                 .filter(key => players[key])

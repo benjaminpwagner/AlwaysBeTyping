@@ -15,7 +15,7 @@ export default ({ WPM, accuracy, prefix, words, addSpace, message }) => {
 
       <div className='next-letters'
         style={{marginLeft: addSpace ? 3 : 0}}
-      >{words.slice(1,30)}</div>
+      >{words.slice(1,29)}</div>
     </div>
   ) : <div className='message'>{message}</div>
 }
