@@ -8,7 +8,7 @@ import socket from './socket';
 
 const { SPACE, BACKSPACE } = Keys
 
-console.log(Keys)
+// console.log(Keys)
 
 @keydown( [
   ...`abcdefghijklmnopqrstuvwxyz`.split(''),

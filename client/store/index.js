@@ -7,7 +7,7 @@ import players from './players'
 
 const reducer = combineReducers({game, players})
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
+  applyMiddleware(thunkMiddleware, /*createLogger({collapsed: true})*/)
 )
 const store = createStore(reducer, middleware)
 
